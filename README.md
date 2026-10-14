@@ -12,3 +12,4 @@ Reto de 50 mini proyectos con HTML, CSS y JavaScript.
 | Día | Proyecto |
 | --- | -------- |
 | 01 | [Expanding Cards](./01-expanding-cards/) |
+| 02 | [Progress-steps](./02-progress-steps/) |
