@@ -1,0 +1,124 @@
+/* box-sizing en todos los elementos (no se hereda, por eso va en *) */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #0b2b4d;        /* color del centro (también lo usan los círculos) */
+    --fondo-borde: #030c2b;  /* color de las orillas */
+    --primario: #ffd900;
+    --apagado: #2e4a52;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, var(--fondo), var(--fondo-borde));
+}
+
+.progress-container {
+    width: 350px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 0; /* encierra los z-index de las líneas y círculos aquí dentro */
+}
+
+/* Línea gris de fondo: siempre completa */
+.progress-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 4px;
+    background: var(--apagado);
+    z-index: -1;
+}
+
+/* Línea primario: JS cambiará su width */
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0%;
+    height: 4px;
+    background: var(--primario);
+    z-index: -1;
+    transition: width 0.4s ease;
+}
+
+/* Los círculos van encima de las líneas y las tapan con su fondo */
+.circle {
+    width: 30px;
+    height: 30px;
+    background: var(--fondo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    border: 3px solid var(--apagado);
+    color: var(--primario);
+    transition: border-color 0.4s ease;
+}
+
+.circle-active {
+   border-color: var(--primario);
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    background: var(--primario);
+    color: var(--fondo);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 30px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    background: var(--apagado);
+    cursor: not-allowed;
+}
+
+.perfil {
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+}
+
+.perfil h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.perfil p {
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
