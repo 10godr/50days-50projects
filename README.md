@@ -1,6 +1,6 @@
 # 50 Días 50 Proyectos
 
-Reto de 50 mini proyectos con HTML, CSS y JavaScript, uno por día.
+Reto de 50 mini proyectos con HTML, CSS y JavaScript.
 
 ## Estructura
 
